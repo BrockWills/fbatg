@@ -37,7 +37,7 @@ const token = function() {
   try {
     require('../config/config.json');
   } catch(e) {
-    console.log('\nYou need to initialize with `firebase-token init` first\n'.bold.red);
+    console.log('\nYou need to initialize with `fbatg init` first\n'.bold.red);
     return;
   }
 
