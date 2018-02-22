@@ -36,7 +36,7 @@ const init = function(configPath) {
     resultingConfig[field] = config[field];
   }
 
-  fs.writeFileSync(path.resolve('config/config.json'), JSON.stringify(resultingConfig));
+  fs.writeFileSync(path.join(path.dirname(module.parent.filename), 'config/config.json'), JSON.stringify(resultingConfig));
 
   console.log('\nSuccessfully initialized. Now try to get a token with the `token` command\n'.bold.green);
 };
