@@ -10,7 +10,7 @@
   "bin": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/BrockWills/firebase-auth-token.git"
+    "url": "git://github.com/BrockWills/fbatg.git"
   },
   "dependencies": {
     "colors": "^1.1.2",
