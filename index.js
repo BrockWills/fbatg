@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-program.version('0.1.0');
+program.version('0.1.2');
 
 /* ------ Setup the `init` command ------ */
 program.command('init <config>')
