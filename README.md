@@ -11,8 +11,9 @@ This is a simple little CLI for generating a firebase auth token.
   1. [Motivation](#motivation)
   2. [Installation](#installation)
   3. [Init](#init)
-  4. [Generating a token](#generating-a-token)
-  5. [Contributing](#contributing)
+  4. [Logging in](#logging-in)
+  5. [Generating a token](#generating-a-token)
+  6. [Contributing](#contributing)
 
 ## Motivation
 
@@ -55,28 +56,37 @@ fbatg init <path_to_file>
 
 Once you get the success message from that, you're good to move on.
 
+## Logging in
+
+Now that you've initialized the CLI, you need to log into the firebase auth account you want a token for.
+
+Simply run
+
+```shell
+fbatg login
+```
+
+and you should get a prompt to enter an email and password.
+
+Assuming you successfully log in, you'll now be able to move on and generate an auth token.
+
 ## Generating a token
 
-Now that you've initialized the CLI, you can start generating tokens.
-
-Simple run
+The final step! Now that you have init'ed the CLI, and logged in, you can start generating auth tokens.
 
 ```shell
 fbatg
 ```
 
-and you should get a prompt to enter and email and password for a firebase auth account.
+If you've done everything properly so far, this should log you a firebase auth token - much success!
 
-If you successfully sign in, a firebase auth token will be printed into the console.
-
-Much success!
+If you have any trouble, feel free to file an issue.
 
 ## Contributing
 
 There are still few things I'd like to do to this, and would happily accept any PRs.
 
 **To dos:**
-- Cache the user sign in so you don't have to enter your email and password every time
 - Add support for other auth providers (eg. Facebook, Google etc.)
 
 If you'd like to submit a PR, please just try to follow the style of the rest of the codebase.

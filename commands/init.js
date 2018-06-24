@@ -38,7 +38,7 @@ const init = function(configPath) {
 
   fs.writeFileSync(path.join(path.dirname(module.parent.filename), 'config/config.json'), JSON.stringify(resultingConfig));
 
-  console.log('\nSuccessfully initialized. Now try to get a token with the `token` command\n'.bold.green);
+  console.log('\nSuccessfully initialized. Now login with the `login` command\n'.bold.green);
 };
 
 module.exports = init;

@@ -9,9 +9,13 @@ program.command('init <config>')
   .description('Initializes the tool with your firebase config details')
   .action(require('./commands/init.js'));
 
+program.command('login')
+  .description('Login to firebase so that you can generate auth tokens')
+  .action(require('./commands/login.js'));
+
 /* ------ Setup the `token` command ------ */
 program.command('token')
-  .description('Get a firebase auth token by email')
+  .description('Get a firebase auth token for the currently signed in user')
   .action(require('./commands/token.js'));
 
 /* ------ This is basically where execution starts ------ */
