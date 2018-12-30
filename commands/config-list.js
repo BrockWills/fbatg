@@ -11,13 +11,14 @@ const config = require('../helpers/config');
 function configList() {
   console.log('\nThe following configs have been set up:\n'.bold);
 
-  const activeConfig = config.getActiveConfig();
+  const activeConfigName = config.getActiveConfigName();
 
   config.getAllFirebaseConfigs().forEach((configName) => {
-    let formattedNameString = '\t' + configName + '\n';
-    if (activeConfig && configName === activeConfig.name) {
+    let formattedNameString = '\t' + configName;
+    if (activeConfigName && configName === activeConfigName) {
       formattedNameString = formattedNameString.bold + ' - active';
     }
+    formattedNameString += '\n';
 
     console.log(formattedNameString);
   });

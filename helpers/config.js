@@ -1,5 +1,6 @@
 /* ------ Modules ------ */
 const fs = require('fs');
+const path = require('path');
 
 /* ------ Utils for getting specific things out of config ------ */
 
@@ -46,6 +47,17 @@ function getActiveConfig() {
   });
 
   return firebaseConfig;
+}
+
+function getActiveConfigName() {
+  const config = require('../config/config.json');
+
+  const activeName = config.activeConfig;
+  if (!activeName) {
+    return null;
+  }
+
+  return activeName;
 }
 
 function getConfig(name) {
@@ -115,7 +127,7 @@ function removeFirebaseConfig(name) {
 /* ------ Util for saving a config file ------ */
 
 function save(config) {
-  fs.writeFileSync('config/config.json', JSON.stringify(config));
+  fs.writeFileSync(path.join(path.dirname(module.parent.filename), '/../config/config.json'), JSON.stringify(config));
 }
 
 /* ------ Allllll the exports ------ */
@@ -123,6 +135,7 @@ function save(config) {
 module.exports.getAllFirebaseConfigs = getAllFirebaseConfigs;
 module.exports.getUser = getUser;
 module.exports.getActiveConfig = getActiveConfig;
+module.exports.getActiveConfigName = getActiveConfigName;
 module.exports.getConfig = getConfig;
 
 module.exports.updateActiveConfig = updateActiveConfig;
