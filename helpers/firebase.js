@@ -1,18 +1,21 @@
+/* ------ Modules ------ */
 const firebase = require('firebase');
+
+/* ------ Helpers ------ */
+const config = require('./config.js');
 
 /* ------ Handles all the interaction with Firebase ------ */
 class Firebase {
   /**
-   * Initializes firebase auth based on the config file.
-   *
-   * Currently assumes ../config/config.json already exists, because that check
-   * occurs in the token command handler, but should probably be handled here instead.
-   * I'll fix it one day, maybe :P
+   * Initializes firebase auth based on the currently active config
    */
   constructor() {
-    const config = require('../config/config.json');
+    const firebaseConfig = config.getActiveConfig();
+    if (!firebaseConfig) {
+      process.exit(1);
+    }
 
-    const firebaseApp = firebase.initializeApp(config);
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
 
     this.auth = firebaseApp.auth();
   }

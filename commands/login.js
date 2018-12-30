@@ -1,9 +1,13 @@
+/* ------ Modules ------ */
 const inquirer = require('inquirer');
-const Firebase = require('../firebase/auth.js');
+const Firebase = require('../helpers/firebase.js');
 const emailValidator = require('email-validator');
 const colors = require('colors');
 const fs = require('fs');
 const path = require('path');
+
+/* ------ Helpers ------ */
+const config = require('../helpers/config.js');
 
 /* ------ These are the questions the login prompt asks ------ */
 const questions = [
@@ -30,21 +34,16 @@ const questions = [
 ];
 
 /**
- * `login`
- *
  * This command will sign you into firebase, assuming the CLI has already been init'ed.
  * Requires you to log into a firebase account using an email and password.
  */
-const login = function() {
-  try {
-    require('../config/config.json');
-  } catch(e) {
+function login() {
+  if (!config.getActiveConfig()) {
     console.log('\nYou need to initialize with `fbatg init` first\n'.bold.red);
-    return;
+    process.exit(1);
   }
 
   let email, password;
-
   inquirer.prompt(questions)
     .then((answers) => {
       email = answers.email;
@@ -55,11 +54,7 @@ const login = function() {
     .then((token) => {
       console.log('\nSuccessfully logged in. Now try getting a token with the `token` command.\n'.bold.green);
 
-      const userDetails = { email, password };
-
-      // Save the email and password
-      fs.writeFileSync(path.join(path.dirname(module.parent.filename), 'config/user.json'), JSON.stringify(userDetails));
-
+      config.updateUser(email, password);
       process.exit(0);
     })
     .catch((e) => {
@@ -67,6 +62,6 @@ const login = function() {
 
       process.exit(1);
     });
-};
+}
 
 module.exports = login;

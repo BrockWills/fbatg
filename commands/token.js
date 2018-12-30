@@ -1,32 +1,26 @@
-const Firebase = require('../firebase/auth.js');
+/* ------ Modules ------ */
+const Firebase = require('../helpers/firebase.js');
 const colors = require('colors');
+const fs = require('fs');
+
+/* ------ Helpers ------ */
+const config = require('../helpers/config.js');
 
 /**
- * `token`
- *
  * This command actually generates the auth token, assuming the CLI has already been init'ed,
  * and you are already logged in (from the `fbatg login` command).
  */
-const token = function() {
-  try {
-    require('../config/config.json');
-  } catch(e) {
+function token() {
+  if (!config.getActiveConfig()) {
     console.log('\nYou need to initialize with `fbatg init` first\n'.bold.red);
-    return;
+    process.exit(1);
   }
 
-  let user;
+  const user = config.getUser();
 
-  try {
-    user = require('../config/user.json');
-  } catch (e) {
+  if (!user) {
     console.log('\nYou need to login with `fbatg login` first\n'.bold.red);
-    return;
-  }
-
-  if (!user.email || !user.password) {
-    console.log('\nYou need to login again with `fbatg login`\n'.bold.red);
-    return;
+    process.exit(1);
   }
 
   new Firebase().login(user.email, user.password)
