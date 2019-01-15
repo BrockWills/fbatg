@@ -10,7 +10,7 @@ const config = require('../helpers/config.js');
  * given named config, (if it exists).
  */
 function switchConfig(name) {
-  if (!getConfig(name)) {
+  if (!config.getConfig(name)) {
     console.log('\nConfig named ' + ('' + name).bold + ' does not exist\n'.red);
     process.exit(1);
   }
