@@ -1,5 +1,3 @@
-![FBATG: Firebase Auth Token Generator](https://storage.googleapis.com/1cf54569e3eb88d0165/FBATG.png)
-
 # FBATG
 
 **Firebase Auth Token Generator.**
