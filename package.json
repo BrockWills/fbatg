@@ -1,12 +1,12 @@
 {
   "name": "fbatg",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "CLI for generating a firebase auth token quick and easy",
   "author": {
     "name": "Brock Wills",
     "url": "http://brockwills.com"
   },
-  "bin": "dist/index.js",
+  "bin": "bin/cli.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/BrockWills/fbatg.git"
