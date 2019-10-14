@@ -1,8 +1,8 @@
 /* ------ Modules ------ */
-const firebase = require('firebase');
+import firebase from 'firebase';
 
 /* ------ Helpers ------ */
-const config = require('./config.js');
+import config from './config';
 
 /* ------ Handles all the interaction with Firebase ------ */
 class Firebase {
@@ -31,4 +31,4 @@ class Firebase {
   }
 }
 
-module.exports = Firebase;
+export default Firebase;

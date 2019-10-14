@@ -1,13 +1,13 @@
 /* ------ Modules ------ */
-const inquirer = require('inquirer');
-const Firebase = require('../helpers/firebase.js');
-const emailValidator = require('email-validator');
-const colors = require('colors');
-const fs = require('fs');
-const path = require('path');
+import inquirer from 'inquirer';
+import emailValidator from 'email-validator';
+import colors from 'colors';
+import fs from 'fs';
+import path from 'path';
 
 /* ------ Helpers ------ */
-const config = require('../helpers/config.js');
+import Firebase from '../helpers/firebase';
+import config from '../helpers/config';
 
 /* ------ These are the questions the login prompt asks ------ */
 const questions = [
@@ -64,4 +64,4 @@ function login() {
     });
 }
 
-module.exports = login;
+export default login;

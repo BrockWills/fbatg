@@ -1,9 +1,9 @@
 /* ------ Modules ------ */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 /* ------ Helpers ------ */
-const config = require('../helpers/config.js');
+import config from '../helpers/config';
 
 /**
  * Switches the currently active firebase config to the
@@ -21,4 +21,4 @@ function switchConfig(name) {
   process.exit(0);
 }
 
-module.exports = switchConfig;
+export default switchConfig;

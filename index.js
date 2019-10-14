@@ -1,40 +1,51 @@
-#!/usr/bin/env node
+/* ------ Modules ------ */
+import program from 'commander';
 
-const program = require('commander');
+/* ------ Version ------ */
+import { version } from './package.json';
 
-program.version('0.1.2');
+/* ------ Commands ------ */
+import {
+  configList,
+  configRemove,
+  configSwitch,
+  init,
+  login,
+  token,
+} from './commands';
 
-/* ------ Setup the `init` command ------ */
+program.version(version);
+
+/* ------ Setup the commands ------ */
 program.command('init <config>')
   .option('--name <name>', 'Allows you to set the name that the config is stored as')
   .description('Initializes the tool with your firebase config details')
-  .action(require('./commands/init.js'));
+  .action(init);
 
 program.command('config-switch <name>')
   .description('Allows you to switch firebase configs')
-  .action(require('./commands/config-switch.js'));
+  .action(configSwitch);
 
 program.command('config-list')
   .description('Lists all current firebase configs')
-  .action(require('./commands/config-list.js'));
+  .action(configList);
 
 program.command('config-remove <name>')
   .description('Removes the given named config')
-  .action(require('./commands/config-remove.js'));
+  .action(configRemove);
 
 program.command('login')
   .description('Login to firebase so that you can generate auth tokens')
-  .action(require('./commands/login.js'));
+  .action(login);
 
-/* ------ Setup the `token` command ------ */
 program.command('token')
   .description('Get a firebase auth token for the currently signed in user')
-  .action(require('./commands/token.js'));
+  .action(token);
 
 /* ------ This is basically where execution starts ------ */
 program.parse(process.argv);
 
 /* ------ Default to the `token` command ------ */
 if (!program.args.length) {
-  require('./commands/token.js')();
+  token();
 }

@@ -1,10 +1,10 @@
 /* ------ Modules ------ */
-const fs = require('fs');
-const path = require('path');
-const inquirer = require('inquirer');
+import fs from 'fs';
+import path from 'path';
+import inquirer from 'inquirer';
 
 /* ------ Helpers ------ */
-const config = require('../helpers/config.js');
+import config from '../helpers/config';
 
 /**
  * Initialises the CLI from a JSON file that contains all the necessary firebases details.
@@ -59,4 +59,4 @@ function init(configPath, cmd) {
   console.log('\nSuccessfully initialized. Now login with the `login` command\n'.bold.green);
 }
 
-module.exports = init;
+export default init;

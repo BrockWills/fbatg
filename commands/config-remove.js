@@ -1,8 +1,8 @@
 /* ------ Modules ------ */
-const colors = require('colors');
+import colors from 'colors';
 
 /* ------ Helpers ------ */
-const config = require('../helpers/config.js');
+import config from '../helpers/config';
 
 /**
  * Removes the firebase config with the given name, if it exists.
@@ -21,4 +21,4 @@ function removeConfig(name) {
   process.exit(0);
 }
 
-module.exports = removeConfig;
+export default removeConfig;

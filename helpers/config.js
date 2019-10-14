@@ -1,6 +1,6 @@
 /* ------ Modules ------ */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 /* ------ Utils for getting specific things out of config ------ */
 
@@ -132,13 +132,14 @@ function save(config) {
 
 /* ------ Allllll the exports ------ */
 
-module.exports.getAllFirebaseConfigs = getAllFirebaseConfigs;
-module.exports.getUser = getUser;
-module.exports.getActiveConfig = getActiveConfig;
-module.exports.getActiveConfigName = getActiveConfigName;
-module.exports.getConfig = getConfig;
-
-module.exports.updateActiveConfig = updateActiveConfig;
-module.exports.updateUser = updateUser;
-module.exports.addFirebaseConfig = addFirebaseConfig;
-module.exports.removeFirebaseConfig = removeFirebaseConfig;
+export default {
+  getAllFirebaseConfigs,
+  getUser,
+  getActiveConfig,
+  getActiveConfigName,
+  getConfig,
+  updateActiveConfig,
+  updateUser,
+  addFirebaseConfig,
+  removeFirebaseConfig,
+};

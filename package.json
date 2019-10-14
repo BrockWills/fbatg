@@ -6,11 +6,15 @@
     "name": "Brock Wills",
     "url": "http://brockwills.com"
   },
-  "main": "index.js",
-  "bin": "./index.js",
+  "bin": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/BrockWills/fbatg.git"
+  },
+  "scripts": {
+    "start": "parcel index.js --target node",
+    "build": "parcel build index.js --target node",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "colors": "^1.4.0",
@@ -18,5 +22,8 @@
     "email-validator": "^2.0.4",
     "firebase": "^7.2.0",
     "inquirer": "^7.0.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
   }
 }

@@ -1,10 +1,10 @@
 /* ------ Modules ------ */
-const Firebase = require('../helpers/firebase.js');
-const colors = require('colors');
-const fs = require('fs');
+import colors from 'colors';
+import fs from 'fs';
 
 /* ------ Helpers ------ */
-const config = require('../helpers/config.js');
+import Firebase from '../helpers/firebase';
+import config from '../helpers/config';
 
 /**
  * This command actually generates the auth token, assuming the CLI has already been init'ed,
@@ -38,4 +38,4 @@ function token() {
     });
 };
 
-module.exports = token;
+export default token;
