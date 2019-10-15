@@ -1,6 +1,9 @@
 /* ------ Modules ------ */
 import program from 'commander';
 
+/* ------ Helpers ------ */
+import config from './helpers/config';
+
 /* ------ Version ------ */
 import { version } from './package.json';
 
@@ -18,7 +21,7 @@ program.version(version);
 
 /* ------ Setup the commands ------ */
 program.command('init <config>')
-  .option('--name <name>', 'Allows you to set the name that the config is stored as')
+  .option('--config-name <name>', 'Allows you to set the name that the config is stored as')
   .description('Initializes the tool with your firebase config details')
   .action(init);
 
@@ -42,10 +45,15 @@ program.command('token')
   .description('Get a firebase auth token for the currently signed in user')
   .action(token);
 
-/* ------ This is basically where execution starts ------ */
-program.parse(process.argv);
+(async function() {
+  /* ------ Initialize our config handler ------ */
+  await config.init();
 
-/* ------ Default to the `token` command ------ */
-if (!program.args.length) {
-  token();
-}
+  /* ------ This is basically where execution starts ------ */
+  program.parse(process.argv);
+
+  /* ------ Default to the `token` command ------ */
+  if (!program.args.length) {
+    token();
+  }
+})();

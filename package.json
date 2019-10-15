@@ -29,7 +29,8 @@
     "commander": "^3.0.2",
     "email-validator": "^2.0.4",
     "firebase": "^7.2.0",
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.0.0",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"

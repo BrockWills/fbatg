@@ -41,10 +41,14 @@ function init(configPath, cmd) {
     resultingConfig[field] = newConfig[field];
   }
 
-  const name = cmd.name ? cmd.name : 'default';
+  const name = cmd.configName;
+  if (!name) {
+    console.log('\nThe name parameter is required. Please use --config-name to provide a name for your config\n'.bold.red);
+    return;
+  }
 
   if (config.getConfig(name)) {
-    inquirer.prompt([{ type: 'boolean', name: 'overwrite', message: 'A config exists with the name ' + name + ' - do you want to overwrite it?' }])
+    inquirer.prompt([{ type: 'confirm', name: 'overwrite', message: 'A config exists with the name ' + name + ' - do you want to overwrite it?' }])
       .then((answers) => {
         if (!answers.overwrite) {
           process.exit(0);
@@ -53,10 +57,10 @@ function init(configPath, cmd) {
         config.addFirebaseConfig(name, newConfig);
         console.log('\nSuccessfully initialized. Now login with the `login` command\n'.bold.green);
       });
+  } else {
+    config.addFirebaseConfig(name, newConfig);
+    console.log('\nSuccessfully initialized. Now login with the `login` command\n'.bold.green);
   }
-
-  config.addFirebaseConfig(name, newConfig);
-  console.log('\nSuccessfully initialized. Now login with the `login` command\n'.bold.green);
 }
 
 export default init;

@@ -49,8 +49,10 @@ You can easily obtain these details from your firebase console.
 Once you have this json file, you can simple return
 
 ```shell
-fbatg init <path_to_file>
+fbatg init <path_to_file> --config-name <name_your_config>
 ```
+
+Note that the `--config-name` option is required.
 
 Once you get the success message from that, you're good to move on.
 
@@ -82,10 +84,7 @@ If you have any trouble, feel free to file an issue.
 
 ## Contributing
 
-There are still few things I'd like to do to this, and would happily accept any PRs.
-
-**To dos:**
-- Add support for other auth providers (eg. Facebook, Google etc.)
+There are still few things I'd like to do with this project, and would happily accept any PRs for bug fixes or relevant changes.
 
 If you'd like to submit a PR, please just try to follow the style of the rest of the codebase.
 
