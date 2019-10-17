@@ -2,12 +2,12 @@
 import colors from 'colors';
 
 /* ------ Helpers ------ */
-import config from '../helpers/config';
+import config from '../../helpers/config';
 
 /**
  * Removes the firebase config with the given name, if it exists.
  */
-function removeConfig(name) {
+function remove(name) {
   const boldedName = ('' + name).bold;
 
   if (!config.getConfig(name)) {
@@ -16,9 +16,9 @@ function removeConfig(name) {
   }
 
   config.removeFirebaseConfig(name);
-  console.log('\nConfig ' + boldedName + ' has been removed\n'.green);
+  console.log(('\nConfig '. + boldedName + ' has been removed\n').green);
 
   process.exit(0);
 }
 
-export default removeConfig;
+export default remove;

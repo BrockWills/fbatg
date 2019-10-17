@@ -9,9 +9,6 @@ import { version } from './package.json';
 
 /* ------ Commands ------ */
 import {
-  configList,
-  configRemove,
-  configSwitch,
   init,
   login,
   token,
@@ -25,18 +22,6 @@ program.command('init <config>')
   .description('Initializes the tool with your firebase config details')
   .action(init);
 
-program.command('config-switch <name>')
-  .description('Allows you to switch firebase configs')
-  .action(configSwitch);
-
-program.command('config-list')
-  .description('Lists all current firebase configs')
-  .action(configList);
-
-program.command('config-remove <name>')
-  .description('Removes the given named config')
-  .action(configRemove);
-
 program.command('login')
   .description('Login to firebase so that you can generate auth tokens')
   .action(login);
@@ -44,6 +29,9 @@ program.command('login')
 program.command('token')
   .description('Get a firebase auth token for the currently signed in user')
   .action(token);
+
+program.command('config', 'Commands to deal with firebase configurations', { executableFile: './dist/commands/config/index.js' });
+
 
 (async function() {
   /* ------ Initialize our config handler ------ */

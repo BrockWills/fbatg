@@ -1,14 +1,11 @@
-/* ------ Modules ------ */
-import fs from 'fs';
-
 /* ------ Helpers ------ */
-import config from '../helpers/config';
+import config from '../../helpers/config';
 
 /**
  * Lists all the names of the current firebase configs,
  * highlighting the current active config in bold.
  */
-function listConfigs() {
+function list() {
   console.log('\nThe following configs have been set up:\n'.bold);
 
   const activeConfigName = config.getActiveConfigName();
@@ -26,4 +23,4 @@ function listConfigs() {
   process.exit(0);
 }
 
-export default listConfigs;
+export default list;

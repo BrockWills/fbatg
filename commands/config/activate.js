@@ -3,13 +3,13 @@ import fs from 'fs';
 import path from 'path';
 
 /* ------ Helpers ------ */
-import config from '../helpers/config';
+import config from '../../helpers/config';
 
 /**
- * Switches the currently active firebase config to the
+ * Switches the currently active firebase config to be the
  * given named config, (if it exists).
  */
-function switchConfig(name) {
+function activate(name) {
   if (!config.getConfig(name)) {
     console.log('\nConfig named ' + ('' + name).bold + ' does not exist\n'.red);
     process.exit(1);
@@ -21,4 +21,4 @@ function switchConfig(name) {
   process.exit(0);
 }
 
-export default switchConfig;
+export default activate;

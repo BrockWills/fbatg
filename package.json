@@ -1,6 +1,6 @@
 {
   "name": "fbatg",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "CLI for generating a firebase auth token quick and easy",
   "author": {
     "name": "Brock Wills",
@@ -20,7 +20,7 @@
     "index.js"
   ],
   "scripts": {
-    "start": "parcel index.js --target node",
+    "start": "parcel index.js commands/config/index.js --target node",
     "build": "parcel build index.js --target node",
     "prepublish": "npm run build"
   },
