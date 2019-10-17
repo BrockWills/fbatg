@@ -16,7 +16,7 @@ function remove(name) {
   }
 
   config.removeFirebaseConfig(name);
-  console.log(('\nConfig '. + boldedName + ' has been removed\n').green);
+  console.log(('\nConfig ' + boldedName + ' has been removed\n').green);
 
   process.exit(0);
 }
