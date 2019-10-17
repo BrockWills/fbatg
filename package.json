@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "start": "parcel index.js commands/config/index.js --target node",
-    "build": "parcel build index.js --target node",
+    "build": "parcel build index.js commands/config/index.js --target node",
     "prepublish": "npm run build"
   },
   "dependencies": {
